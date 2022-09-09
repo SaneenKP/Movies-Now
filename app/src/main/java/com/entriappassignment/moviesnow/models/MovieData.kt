@@ -3,33 +3,18 @@ package com.entriappassignment.moviesnow.models
 import com.google.gson.annotations.SerializedName
 
 data class MovieData(
-    @SerializedName("id")
-    var movieId: Int,
-
-    @SerializedName("original_language")
-    var language: String,
-
-    @SerializedName("original_title")
-    var title: String,
-
-    @SerializedName("overview")
-    var description: String,
-
-    @SerializedName("popularity")
-    var popularity: Float,
-
-    @SerializedName("poster_path")
-    var poster: String,
-
-    @SerializedName("release_date")
-    var release: String,
-
-    @SerializedName("revenue")
-    var revenue: Long,
-
-    @SerializedName("runtime")
-    var runtime: Int,
-
-    @SerializedName("vote_average")
-    var rating: Float,
-    )
+    @SerializedName("adult"             ) var adult            : Boolean?       = null,
+    @SerializedName("backdrop_path"     ) var backdropPath     : String?        = null,
+    @SerializedName("genre_ids"         ) var genreIds         : MutableList<Int> = arrayListOf(),
+    @SerializedName("id"                ) var id               : Int?           = null,
+    @SerializedName("original_language" ) var originalLanguage : String?        = null,
+    @SerializedName("original_title"    ) var originalTitle    : String?        = null,
+    @SerializedName("overview"          ) var overview         : String?        = null,
+    @SerializedName("popularity"        ) var popularity       : Double?        = null,
+    @SerializedName("poster_path"       ) var posterPath       : String?        = null,
+    @SerializedName("release_date"      ) var releaseDate      : String?        = null,
+    @SerializedName("title"             ) var title            : String?        = null,
+    @SerializedName("video"             ) var video            : Boolean?       = null,
+    @SerializedName("vote_average"      ) var voteAverage      : Float?           = null,
+    @SerializedName("vote_count"        ) var voteCount        : Int?           = null
+)
