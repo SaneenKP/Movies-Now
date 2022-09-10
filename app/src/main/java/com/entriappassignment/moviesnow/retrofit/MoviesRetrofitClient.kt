@@ -91,9 +91,8 @@ class MoviesRetrofitClient() {
         return moviesApiServiceRx
     }
 
-    fun getNowPlayingMovies(pageNo : Int): Single<NowPlayingMoviesData> {
-        return getMoviesApiServiceRx().
-        getNowPlayingMovies(pageNo)
+    suspend fun getNowPlayingMovies(pageNo : Int): NowPlayingMoviesData {
+        return getMoviesApiServiceRx().getNowPlayingMovies(pageNo)
     }
 
 }

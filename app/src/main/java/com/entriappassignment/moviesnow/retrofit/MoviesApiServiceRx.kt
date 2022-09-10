@@ -10,5 +10,5 @@ import retrofit2.http.Query
 
 interface MoviesApiServiceRx {
     @GET("movie/now_playing")
-    fun getNowPlayingMovies(@Query("page") pageNo : Int): Single<NowPlayingMoviesData>
+    suspend fun getNowPlayingMovies(@Query("page") pageNo : Int): NowPlayingMoviesData
 }
