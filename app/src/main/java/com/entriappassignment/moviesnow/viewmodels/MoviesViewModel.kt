@@ -11,11 +11,7 @@ import com.entriappassignment.moviesnow.retrofit.MoviesRetrofitClient
 
 class MoviesViewModel() : ViewModel() {
 
-    private var movieList : LiveData<PagingData<MovieData>>? = null
-
-    fun refresh(){
-       movieList = MovieRepository(MoviesRetrofitClient()).getMovies().cachedIn(viewModelScope)
-    }
+    private var movieList = MovieRepository(MoviesRetrofitClient()).getMovies().cachedIn(viewModelScope)
 
     fun getMovieList(): LiveData<PagingData<MovieData>>? {
         return movieList

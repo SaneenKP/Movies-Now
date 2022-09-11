@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             footer = LoaderAdapter()
         )
 
-        movieViewModel.refresh()
         observeViewModel()
     }
 
