@@ -1,4 +1,4 @@
-package com.entriappassignment.moviesnow.db
+package com.entriappassignment.moviesnow.db.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
