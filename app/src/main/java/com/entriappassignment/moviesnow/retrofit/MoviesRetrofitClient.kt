@@ -14,11 +14,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class MoviesRetrofitClient() {
+class MoviesRetrofitClient @Inject constructor() {
 
     @Singleton
     @Provides

@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.entriappassignment.moviesnow.viewmodels.MoviesViewModel
 import com.entriappassignment.moviesnow.adapters.LoaderAdapter
 import com.entriappassignment.moviesnow.adapters.MoviesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var movieViewModel : MoviesViewModel
