@@ -4,6 +4,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -22,7 +23,8 @@ android {
     buildTypes {
 
         debug{
-            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/"'
+            buildConfigField 'String', 'API_KEY', '"9a976526fce8c29aaa35eb4a1e654d3c"'
         }
         release {
             minifyEnabled false
@@ -47,6 +49,11 @@ def retrofit_version = "2.9.0"
 def gson_version = "2.9.1"
 def paging_version = "3.1.1"
 def glide_version = "4.13.2"
+def dagger_version = "2.43.2"
+
+kapt{
+    correctErrorTypes true
+}
 
 dependencies {
 
@@ -93,6 +100,24 @@ dependencies {
     //Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    //Kotiln extensions
+    implementation "androidx.room:room-ktx:$room_version"
+
+    //Room Paging
+    implementation "androidx.room:room-paging:$room_version"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$dagger_version"
+    kapt "com.google.dagger:hilt-compiler:$dagger_version"
+    kaptTest "com.google.dagger:hilt-android-compiler:$dagger_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$dagger_version"
+
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
