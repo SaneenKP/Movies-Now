@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class MovieData(
     @SerializedName("adult"             ) var adult            : Boolean?       = null,
     @SerializedName("backdrop_path"     ) var backdropPath     : String?        = null,
-    @SerializedName("genre_ids"         ) var genreIds         : MutableList<Int> = arrayListOf(),
+//    @SerializedName("genre_ids"         ) var genreIds         : MutableList<Int> = arrayListOf(),
     @SerializedName("id"                ) var id               : Int?           = null,
     @SerializedName("original_language" ) var originalLanguage : String?        = null,
     @SerializedName("original_title"    ) var originalTitle    : String?        = null,
