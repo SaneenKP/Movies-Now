@@ -3,6 +3,7 @@ package com.entriappassignment.moviesnow.utils
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import com.entriappassignment.moviesnow.BuildConfig
 
 class Utils {
 
@@ -21,6 +22,10 @@ class Utils {
 
         fun error(message: String){
             Log.d(E_TAG , message)
+        }
+
+        fun getImageUrl(width : String , movieImagePath : String) : String{
+           return BuildConfig.IMAGE_BASE_URL + width + movieImagePath
         }
 
     }

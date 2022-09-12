@@ -13,5 +13,7 @@ class Constants {
         const val MOVIE_TABLE_NAME = "Movie"
         const val PAGING_KEY_TABLE_NAME = "MoviePagingKeys"
 
+        //Glide Constants
+        const val GLIDE_IMAGE_SIZE = "w500"
     }
 }

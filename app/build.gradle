@@ -23,6 +23,7 @@ android {
     buildTypes {
 
         debug{
+            buildConfigField 'String', 'IMAGE_BASE_URL', '"http://image.tmdb.org/t/p/"'
             buildConfigField 'String', 'BASE_URL', '"https://api.themoviedb.org/3/"'
             buildConfigField 'String', 'API_KEY', '"9a976526fce8c29aaa35eb4a1e654d3c"'
         }
