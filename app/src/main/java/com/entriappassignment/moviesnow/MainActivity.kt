@@ -2,20 +2,25 @@ package com.entriappassignment.moviesnow
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.entriappassignment.moviesnow.viewmodels.MoviesViewModel
 import com.entriappassignment.moviesnow.adapters.LoaderAdapter
 import com.entriappassignment.moviesnow.adapters.MoviesAdapter
+import com.entriappassignment.moviesnow.utils.ConnectionLiveStatus
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     lateinit var movieViewModel : MoviesViewModel
     lateinit var moviesAdapter : MoviesAdapter
     lateinit var movieRecyclerView: RecyclerView
+    lateinit var connectivityLiveStatus: ConnectionLiveStatus
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun init(){
 
+        connectivityLiveStatus = ConnectionLiveStatus(this)
+        observeConnectivity()
+
         movieRecyclerView = findViewById(R.id.moviesRecyclerView)
         moviesAdapter = MoviesAdapter()
         movieViewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
@@ -37,14 +45,25 @@ class MainActivity : AppCompatActivity() {
             header = LoaderAdapter(),
             footer = LoaderAdapter()
         )
-
         observeViewModel()
     }
 
+    private fun observeConnectivity(){
+        connectivityLiveStatus.observe(this , Observer {status ->
+            handleConnectivityChange(status)
+        })
+    }
+
     private fun observeViewModel(){
-        movieViewModel.getMovieList()?.observe(this) {
+        movieViewModel.movieList.observe(this) {
             moviesAdapter.submitData(lifecycle, it)
         }
     }
+
+    private fun handleConnectivityChange(status : Boolean){
+        networkConnectivityStatusTv.visibility = if (status) View.GONE else View.VISIBLE
+        moviesAdapter.refresh()
+    }
+
 }
 

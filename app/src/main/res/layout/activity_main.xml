@@ -7,6 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/networkConnectivityStatusTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/network_connectivity_status_false"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:textSize="@dimen/dp_16"
+        android:padding="@dimen/dp_6"
+        android:visibility="gone"
+        android:background="@color/network_connectivity_alert_color"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRecyclerView"
         android:layout_width="match_parent"

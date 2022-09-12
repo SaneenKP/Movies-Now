@@ -1,6 +1,8 @@
 package com.entriappassignment.moviesnow.viewmodels
 
+import android.graphics.Movie
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -12,11 +14,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MoviesViewModel @Inject constructor(movieRepository: MovieRepository) : ViewModel() {
+class MoviesViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {
 
-    private var movieList = movieRepository.getMovies().cachedIn(viewModelScope)
-
-    fun getMovieList(): LiveData<PagingData<MovieData>>? {
-        return movieList
-    }
+    var movieList =  movieRepository.getMovies().cachedIn(viewModelScope)
 }
