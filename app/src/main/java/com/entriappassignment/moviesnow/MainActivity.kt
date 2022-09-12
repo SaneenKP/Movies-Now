@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.entriappassignment.moviesnow.viewmodels.MoviesViewModel
 import com.entriappassignment.moviesnow.adapters.LoaderAdapter
 import com.entriappassignment.moviesnow.adapters.MoviesAdapter
@@ -15,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     lateinit var movieViewModel : MoviesViewModel
     lateinit var moviesAdapter : MoviesAdapter
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity(){
 
         connectivityLiveStatus = ConnectionLiveStatus(this)
         observeConnectivity()
+
+        swipeToRefresh.setOnRefreshListener(this)
 
         movieRecyclerView = findViewById(R.id.moviesRecyclerView)
         moviesAdapter = MoviesAdapter()
@@ -57,11 +60,15 @@ class MainActivity : AppCompatActivity(){
     private fun observeViewModel(){
         movieViewModel.movieList.observe(this) {
             moviesAdapter.submitData(lifecycle, it)
+            if (swipeToRefresh.isRefreshing) swipeToRefresh.isRefreshing = false
         }
     }
 
     private fun handleConnectivityChange(status : Boolean){
         networkConnectivityStatusTv.visibility = if (status) View.GONE else View.VISIBLE
+    }
+
+    override fun onRefresh() {
         moviesAdapter.refresh()
     }
 
