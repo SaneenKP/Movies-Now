@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.entriappassignment.moviesnow.BuildConfig
+import com.entriappassignment.moviesnow.Constants
 
 class Utils {
 
@@ -24,8 +25,12 @@ class Utils {
             Log.d(E_TAG , message)
         }
 
-        fun getImageUrl(width : String , movieImagePath : String) : String{
+        private fun getImageUrl(width : String, movieImagePath : String) : String{
            return BuildConfig.IMAGE_BASE_URL + width + movieImagePath
+        }
+
+        fun getGlideUrl(imagePath : String) : String{
+            return getImageUrl(Constants.GLIDE_IMAGE_SIZE , imagePath)
         }
 
     }
