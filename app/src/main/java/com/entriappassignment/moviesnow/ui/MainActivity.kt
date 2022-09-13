@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.Animation
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
+@ExperimentalPagingApi
 class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
     View.OnClickListener{
 
