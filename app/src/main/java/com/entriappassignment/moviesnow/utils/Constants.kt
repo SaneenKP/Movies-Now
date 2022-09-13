@@ -1,4 +1,4 @@
-package com.entriappassignment.moviesnow
+package com.entriappassignment.moviesnow.utils
 
 class Constants {
     companion object{

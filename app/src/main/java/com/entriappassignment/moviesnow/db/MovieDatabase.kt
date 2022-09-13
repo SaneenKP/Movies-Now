@@ -2,7 +2,7 @@ package com.entriappassignment.moviesnow.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.entriappassignment.moviesnow.Constants
+import com.entriappassignment.moviesnow.utils.Constants
 import com.entriappassignment.moviesnow.db.dao.MovieDao
 import com.entriappassignment.moviesnow.db.dao.MoviePagingKeyDoa
 import com.entriappassignment.moviesnow.models.MovieData

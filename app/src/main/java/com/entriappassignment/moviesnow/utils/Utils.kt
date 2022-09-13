@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.entriappassignment.moviesnow.BuildConfig
-import com.entriappassignment.moviesnow.Constants
 
 class Utils {
 

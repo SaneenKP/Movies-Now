@@ -1,6 +1,5 @@
 package com.entriappassignment.moviesnow.adapters
 
-import android.media.tv.TvContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

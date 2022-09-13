@@ -3,7 +3,7 @@ package com.entriappassignment.moviesnow.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.liveData
-import com.entriappassignment.moviesnow.Constants
+import com.entriappassignment.moviesnow.utils.Constants
 import com.entriappassignment.moviesnow.paging.MoviePagingSource
 import com.entriappassignment.moviesnow.retrofit.MoviesRetrofitClient
 import javax.inject.Inject

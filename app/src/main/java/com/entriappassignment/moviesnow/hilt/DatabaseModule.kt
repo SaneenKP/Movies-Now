@@ -2,7 +2,7 @@ package com.entriappassignment.moviesnow.hilt
 
 import android.content.Context
 import androidx.room.Room
-import com.entriappassignment.moviesnow.Constants
+import com.entriappassignment.moviesnow.utils.Constants
 import com.entriappassignment.moviesnow.db.MovieDatabase
 import dagger.Module
 import dagger.Provides

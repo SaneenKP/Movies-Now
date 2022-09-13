@@ -2,7 +2,7 @@ package com.entriappassignment.moviesnow.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.entriappassignment.moviesnow.Constants
+import com.entriappassignment.moviesnow.utils.Constants
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = Constants.MOVIE_TABLE_NAME)

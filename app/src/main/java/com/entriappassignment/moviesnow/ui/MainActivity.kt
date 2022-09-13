@@ -1,13 +1,17 @@
-package com.entriappassignment.moviesnow
+package com.entriappassignment.moviesnow.ui
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.entriappassignment.moviesnow.R
 import com.entriappassignment.moviesnow.viewmodels.MoviesViewModel
 import com.entriappassignment.moviesnow.adapters.LoaderAdapter
 import com.entriappassignment.moviesnow.adapters.MoviesAdapter
@@ -17,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
-    View.OnClickListener {
+    View.OnClickListener{
 
     lateinit var movieViewModel : MoviesViewModel
     lateinit var moviesAdapter : MoviesAdapter
@@ -68,12 +72,15 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
     }
 
     private fun handleConnectivityChange(status : Boolean){
-        networkConnectivityStatusTv.visibility = if (status) View.GONE else View.VISIBLE
+        networkConnectivityStatusTv.visibility = if (status) View.INVISIBLE else View.VISIBLE
+        nowPlayingTV.visibility = if (status) View.VISIBLE else View.GONE
         moviesAdapter.retry()
 
         //change the status bar color according to network status.
         val window = window
-        window.statusBarColor = if (status) applicationContext.resources.getColor(R.color.app_background_color) else applicationContext.resources.getColor(R.color.network_connectivity_alert_color)
+        window.statusBarColor = if (status) applicationContext.resources.getColor(R.color.app_background_color) else applicationContext.resources.getColor(
+            R.color.network_connectivity_alert_color
+        )
     }
 
     //refresh when swipe

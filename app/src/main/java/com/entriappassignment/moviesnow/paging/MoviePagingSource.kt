@@ -3,7 +3,6 @@ package com.entriappassignment.moviesnow.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.entriappassignment.moviesnow.models.MovieData
-import com.entriappassignment.moviesnow.models.NowPlayingMoviesData
 import com.entriappassignment.moviesnow.retrofit.MoviesRetrofitClient
 import java.lang.Exception
 
