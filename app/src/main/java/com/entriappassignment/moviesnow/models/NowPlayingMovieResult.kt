@@ -6,7 +6,7 @@ import com.entriappassignment.moviesnow.utils.Constants
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = Constants.MOVIE_TABLE_NAME)
-data class MovieData(
+data class NowPlayingMovieResult(
 
     @PrimaryKey(autoGenerate = false)
     @SerializedName("id"                ) var id               : Int,

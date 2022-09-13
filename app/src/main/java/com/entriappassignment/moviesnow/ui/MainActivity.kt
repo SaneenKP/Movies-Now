@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
     private fun observeViewModel(){
         movieViewModel.movieList.observe(this) {
             moviesAdapter.submitData(lifecycle, it)
-            Utils.toast(context = applicationContext , "movie count = ${moviesAdapter.itemCount}")
             if (swipeToRefresh.isRefreshing) swipeToRefresh.isRefreshing = false
         }
     }

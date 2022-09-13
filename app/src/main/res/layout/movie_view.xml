@@ -5,7 +5,7 @@
     <data>
         <variable
             name="movie"
-            type="com.entriappassignment.moviesnow.models.MovieData" />
+            type="com.entriappassignment.moviesnow.models.NowPlayingMovieResult" />
     </data>
 
     <androidx.cardview.widget.CardView
