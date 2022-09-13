@@ -16,7 +16,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
+class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
+    View.OnClickListener {
 
     lateinit var movieViewModel : MoviesViewModel
     lateinit var moviesAdapter : MoviesAdapter
@@ -26,9 +27,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         init()
-
     }
 
     private fun init(){
@@ -48,15 +47,19 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
             header = LoaderAdapter(),
             footer = LoaderAdapter()
         )
+
+        nowPlayingTV.setOnClickListener(this)
         observeViewModel()
     }
 
+    //observe connectivity change
     private fun observeConnectivity(){
         connectivityLiveStatus.observe(this , Observer {status ->
             handleConnectivityChange(status)
         })
     }
 
+    //Observe the movie data change
     private fun observeViewModel(){
         movieViewModel.movieList.observe(this) {
             moviesAdapter.submitData(lifecycle, it)
@@ -66,10 +69,24 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     private fun handleConnectivityChange(status : Boolean){
         networkConnectivityStatusTv.visibility = if (status) View.GONE else View.VISIBLE
+        moviesAdapter.retry()
+
+        //change the status bar color according to network status.
+        val window = window
+        window.statusBarColor = if (status) applicationContext.resources.getColor(R.color.app_background_color) else applicationContext.resources.getColor(R.color.network_connectivity_alert_color)
     }
 
+    //refresh when swipe
     override fun onRefresh() {
         moviesAdapter.refresh()
+    }
+
+    override fun onClick(p0: View?) {
+       when(p0?.id) {
+           R.id.nowPlayingTV -> {
+               movieRecyclerView.smoothScrollToPosition(0)
+           }
+       }
     }
 
 }

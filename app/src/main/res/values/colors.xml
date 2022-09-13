@@ -8,5 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="network_connectivity_alert_color">#4169e1</color>
+    <color name="app_primary_blue">#0224FD</color>
+    <color name="network_connectivity_alert_color">#FFB300</color>
+    <color name="app_background_color">#121212</color>
 </resources>

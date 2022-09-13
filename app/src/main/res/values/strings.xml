@@ -2,4 +2,5 @@
     <string name="app_name">Movies Now</string>
 
     <string name="network_connectivity_status_false">No Internet Connection</string>
+    <string name="now_playing_text">Now Playing</string>
 </resources>
