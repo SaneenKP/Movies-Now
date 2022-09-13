@@ -15,5 +15,8 @@ class Constants {
 
         //Glide Constants
         const val GLIDE_IMAGE_SIZE = "w500"
+
+        //Intent Extras
+        const val MOVIE_ID = "movie_id"
     }
 }
