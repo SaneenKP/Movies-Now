@@ -2,11 +2,13 @@ package com.entriappassignment.moviesnow.retrofit
 
 import com.entriappassignment.moviesnow.BuildConfig.API_KEY
 import com.entriappassignment.moviesnow.BuildConfig.BASE_URL
+import com.entriappassignment.moviesnow.models.MovieDetailsData
 import com.entriappassignment.moviesnow.models.NowPlayingMoviesData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.reactivex.Single
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -80,6 +82,12 @@ class MoviesRetrofitClient @Inject constructor() {
     @Provides
     suspend fun getNowPlayingMovies(pageNo : Int): NowPlayingMoviesData {
         return getMoviesApiServiceRx().getNowPlayingMovies(pageNo)
+    }
+
+    @Singleton
+    @Provides
+    fun getMovieDetails(id : Int): Single<MovieDetailsData> {
+        return getMoviesApiServiceRx().getMovieDetails(id)
     }
 
 }

@@ -3,6 +3,12 @@ package com.entriappassignment.moviesnow.utils
 class Constants {
     companion object{
 
+        enum class Status {
+            SUCCESS,
+            ERROR,
+            LOADING
+        }
+
         //Paging Constants
         const val MAX_PAGE_COUNT = 100 //maximum no of pages to be loaded to pagingData ,after this the pages would be dropped
         const val PAGE_SIZE = 20 //no of pages loaded at once
