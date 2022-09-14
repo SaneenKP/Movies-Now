@@ -10,7 +10,10 @@ import android.net.NetworkRequest
 import android.util.Log
 import androidx.lifecycle.LiveData
 
-//Monitors network changes and triggers connectivity status using live data.
+/**
+ *
+ * Monitors network changes and triggers connectivity status using live data.
+ */
 class ConnectionLiveStatus(context: Context) : LiveData<Boolean>() {
 
     private val TAG = "connection_manager"

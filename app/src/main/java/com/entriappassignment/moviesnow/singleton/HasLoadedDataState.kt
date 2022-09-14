@@ -6,7 +6,9 @@ package com.entriappassignment.moviesnow.singleton
  * it also creates a strong coupling of dependencies
  */
 
-//holds the status of , if there is any data in the adapter or not .
+/**
+ * holds the status of , if there is any data in the adapter or not .
+ */
 object HasLoadedDataState {
     private var hasLoadedData : Boolean = false
     fun getHasLoadedData() : Boolean {return this.hasLoadedData

@@ -4,6 +4,9 @@ import com.bumptech.glide.load.engine.Resource
 import com.entriappassignment.moviesnow.utils.Constants.Companion.Status
 import javax.net.ssl.SSLEngineResult
 
+/**
+ * A simple wrapper class to hold the state of response obtained from api calls.
+ */
 data class ResponseWrapper<out T>(val status : Status , val data : T? , val message : String?){
 
     companion object{

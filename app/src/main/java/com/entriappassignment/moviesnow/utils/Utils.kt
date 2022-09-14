@@ -52,12 +52,14 @@ class Utils {
             return (rating * 5) / 10
         }
 
+        //convert release date to the specific format.
         fun convertFormatReleaseDate(date: String?) : String? {
             var parser : SimpleDateFormat = SimpleDateFormat("yyyy-mm-dd")
             var formater : SimpleDateFormat = SimpleDateFormat("dd MMMM yyyy")
             return formater.format(parser.parse(date))
         }
 
+        //obtain all the genres and combine them to get 1 single string.
         fun getMovieGenreString(genres: List<Genres>) : String?{
             var result = ""
             genres.forEach { genre ->
@@ -65,6 +67,7 @@ class Utils {
                 if (genre.name!!.isNotEmpty())
                     result += ", "
             }
+            //remove the last comma and return
             return StringBuilder(result).deleteAt(result.length-2).toString()
         }
 

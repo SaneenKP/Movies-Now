@@ -6,7 +6,9 @@ package com.entriappassignment.moviesnow.singleton
  * it also creates a strong coupling of dependencies
  */
 
-//Holds the state of the internet connection.
+/**
+ *  Holds the state of the internet connection.
+ */
 object InternetConnectivityState {
     private var internetConnectivityState : Boolean = false
     fun setInternetConnectivityState(status : Boolean){ this.internetConnectivityState = status}

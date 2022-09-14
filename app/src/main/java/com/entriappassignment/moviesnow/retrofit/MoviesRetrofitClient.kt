@@ -54,11 +54,16 @@ class MoviesRetrofitClient @Inject constructor() {
     @Provides
     fun getOkHttpClient() : OkHttpClient{
 
-        var httLog : HttpLoggingInterceptor = HttpLoggingInterceptor()
-        httLog.setLevel(HttpLoggingInterceptor.Level.BODY)
+        /***
+         * Only use the logging interceptor to log , Do not use it in production.
+         * This can cause a serious security issue and google play might reject it.
+         */
+//        var httLog : HttpLoggingInterceptor = HttpLoggingInterceptor()
+//        httLog.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val okHttpClient = OkHttpClient.Builder()
-           .addInterceptor(getInterceptor()).addInterceptor(httLog)
+           .addInterceptor(getInterceptor())
+//            .addInterceptor(httLog)
            .connectTimeout(60 , TimeUnit.SECONDS)
            .build()
 

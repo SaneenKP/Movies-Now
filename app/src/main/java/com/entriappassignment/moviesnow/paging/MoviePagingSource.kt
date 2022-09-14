@@ -4,12 +4,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.entriappassignment.moviesnow.models.NowPlayingMovieResult
 import com.entriappassignment.moviesnow.retrofit.MoviesRetrofitClient
+import com.entriappassignment.moviesnow.utils.Constants
 import java.lang.Exception
 
 class MoviePagingSource(private val moviesRetrofitClient: MoviesRetrofitClient) :
     PagingSource<Int, NowPlayingMovieResult>() {
 
-    private val INITIAL_PAGE = 1
+    private val INITIAL_PAGE = Constants.INITIAL_PAGE
 
     override fun getRefreshKey(state: PagingState<Int, NowPlayingMovieResult>): Int? {
         return state.anchorPosition?.let {
