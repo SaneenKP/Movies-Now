@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Movies-Now/app/src/main/res/drawable/movie_poster_background_gradient.xml" value="0.164" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Movies-Now/app/src/main/res/drawable/now_playing_card_background.xml" value="0.1615" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Movies-Now/app/src/main/res/drawable/now_playing_text_background.xml" value="0.1615" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Movies-Now/app/src/main/res/layout/activity_main.xml" value="0.264" />
