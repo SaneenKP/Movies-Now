@@ -42,7 +42,6 @@ class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.Mo
 
         fun bindData(nowPlayingMovieResult: NowPlayingMovieResult){
             this.movie = nowPlayingMovieResult
-            this.movie!!.releaseDate = Utils.convertFormatReleaseDate(this.movie!!.releaseDate)
             movieViewDataBinding.movie = this.movie
 
         }
