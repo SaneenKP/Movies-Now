@@ -3,4 +3,5 @@
 
     <string name="network_connectivity_status_false">No Internet Connection</string>
     <string name="now_playing_text">Now Playing</string>
+    <string name="no_connection_text">No internet connection !!</string>
 </resources>

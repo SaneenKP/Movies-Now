@@ -2,8 +2,11 @@ package com.entriappassignment.moviesnow
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.entriappassignment.moviesnow.databinding.ActivityMovieDetailsBinding
+import com.entriappassignment.moviesnow.models.MovieDetailsData
 import com.entriappassignment.moviesnow.utils.Constants
 import com.entriappassignment.moviesnow.utils.Constants.Companion.Status
 import com.entriappassignment.moviesnow.utils.Utils
@@ -13,16 +16,21 @@ class MovieDetails : AppCompatActivity() {
 
     private var movieId : Int = 0;
     lateinit var movieDetailsViewModel : MovieDetailsViewModel
+    private var movieDetailsData : MovieDetailsData? = null
+    private lateinit var movieDetailsBinding : ActivityMovieDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_details)
+        movieDetailsBinding = DataBindingUtil.setContentView(this , R.layout.activity_movie_details)
 
         handleIntent()
         init()
         setupObservers()
 
+    }
 
+    private fun bindData(){
+        movieDetailsBinding.movieDetails = this.movieDetailsData
     }
 
     private fun handleIntent(){
@@ -50,7 +58,8 @@ class MovieDetails : AppCompatActivity() {
                    }
 
                    Status.SUCCESS -> {
-                       Utils.debug("moves details success ${response.data}")
+                       this.movieDetailsData = response.data
+                       bindData()
                    }
 
                    Status.ERROR -> {
