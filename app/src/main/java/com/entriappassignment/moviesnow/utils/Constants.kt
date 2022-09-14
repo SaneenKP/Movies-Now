@@ -3,6 +3,8 @@ package com.entriappassignment.moviesnow.utils
 class Constants {
     companion object{
 
+        const val SPLASH_SCREEN_DELAY_TIME : Long = 3000
+
         enum class Status {
             SUCCESS,
             ERROR,

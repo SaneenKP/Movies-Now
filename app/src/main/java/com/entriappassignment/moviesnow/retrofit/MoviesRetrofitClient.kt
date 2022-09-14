@@ -2,6 +2,7 @@ package com.entriappassignment.moviesnow.retrofit
 
 import com.entriappassignment.moviesnow.BuildConfig.API_KEY
 import com.entriappassignment.moviesnow.BuildConfig.BASE_URL
+import com.entriappassignment.moviesnow.models.Configuration
 import com.entriappassignment.moviesnow.models.MovieDetailsData
 import com.entriappassignment.moviesnow.models.NowPlayingMoviesData
 import dagger.Module
@@ -94,5 +95,12 @@ class MoviesRetrofitClient @Inject constructor() {
     fun getMovieDetails(id : Int): Single<MovieDetailsData> {
         return getMoviesApiServiceRx().getMovieDetails(id)
     }
+
+    @Singleton
+    @Provides
+    fun getConfiguration(): Single<Configuration> {
+        return getMoviesApiServiceRx().getConfiguration()
+    }
+
 
 }

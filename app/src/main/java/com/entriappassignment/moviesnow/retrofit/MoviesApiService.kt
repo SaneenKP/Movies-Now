@@ -1,5 +1,6 @@
 package com.entriappassignment.moviesnow.retrofit
 
+import com.entriappassignment.moviesnow.models.Configuration
 import com.entriappassignment.moviesnow.models.MovieDetailsData
 import com.entriappassignment.moviesnow.models.NowPlayingMoviesData
 import io.reactivex.Single
@@ -13,4 +14,7 @@ interface MoviesApiService {
 
     @GET("movie/{movie_id}")
     fun getMovieDetails(@Path("movie_id") movieId : Int): Single<MovieDetailsData>
+
+    @GET("configuration")
+    fun getConfiguration() : Single<Configuration>
 }
