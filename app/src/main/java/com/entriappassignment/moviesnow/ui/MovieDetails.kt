@@ -68,15 +68,21 @@ class MovieDetails : AppCompatActivity() {
                when(response.status){
 
                    Status.LOADING -> {
+                        loadingStatus.visibility = View.VISIBLE
                         Utils.debug("loading movie details")
                    }
 
                    Status.SUCCESS -> {
+                       loadingStatus.visibility = View.GONE
+                       movieDetailsContainer.visibility = View.VISIBLE
                        this.movieDetailsData = response.data
                        bindData()
                    }
 
                    Status.ERROR -> {
+                       loadingStatus.visibility = View.GONE
+                       movieDetailsContainer.visibility = View.GONE
+                       somethingWentWrongContainer.visibility = View.VISIBLE
                        Utils.debug("movie details error ${response.message}")
                    }
                }

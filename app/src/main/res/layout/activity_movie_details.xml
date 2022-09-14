@@ -25,6 +25,37 @@
             android:background="@color/black">
 
             <RelativeLayout
+                android:id="@+id/somethingWentWrongContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:id="@+id/somethingWentWrongImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_construction_24"
+                    android:layout_centerInParent="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/somethingWentWrongImage"
+                    android:text="@string/something_went_wrong_text"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp_10"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/noConnectionContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
