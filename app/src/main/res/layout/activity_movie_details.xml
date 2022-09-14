@@ -9,85 +9,128 @@
             type="com.entriappassignment.moviesnow.models.MovieDetailsData" />
     </data>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/app_background_color"
-        tools:context=".MovieDetails">
-
+        tools:context=".ui.MovieDetails">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/movieDetailsContainer"
+            android:id="@+id/bottomSheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
             app:behavior_hideable="true"
             android:background="@color/black">
 
-            <ImageView
-                android:id="@+id/movieBackground"
-                imageFromPath="@{movieDetails.backdropPath}"
+            <RelativeLayout
+                android:id="@+id/noConnectionContainer"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:background="@color/black"
-                android:scaleType="fitXY"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <ImageView
-                android:id="@+id/moviePoster"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                imageFromPath="@{movieDetails.posterPath}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/movieBackground"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginBottom="@dimen/dp_16" />
-
-            <TextView
-                android:id="@+id/movieHeadingTv"
-                android:text="@{movieDetails.title}"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold"
-                android:paddingStart="@dimen/dp_12"
-                android:paddingEnd="@dimen/dp_8"
-                app:layout_constraintStart_toEndOf="@id/moviePoster"
-                app:layout_constraintTop_toTopOf="@id/moviePoster"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!--        <TextView-->
-            <!--            android:id="@+id/adult"-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_marginTop="@dimen/dp_8"-->
-            <!--            android:text="18+"-->
-            <!--            android:textColor="@color/white"-->
-            <!--            android:textSize="@dimen/sp_16"-->
-            <!--            app:layout_constraintStart_toEndOf="@id/movieHeadingTv"-->
-            <!--            app:layout_constraintTop_toTopOf="@id/moviePoster"-->
-            <!--            app:layout_constraintEnd_toEndOf="pa"-->
-            <!--            />-->
-
-            <TextView
-                android:id="@+id/movieOverview"
-                android:text="@{movieDetails.overview}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/movieBackground"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/sp_14"
-                android:layout_marginStart="@dimen/dp_16"
-                android:layout_marginEnd="@dimen/dp_16"
-                android:textSize="@dimen/sp_14"
-                android:textStyle="italic"
-                android:textColor="@color/white"
-                android:padding="@dimen/dp_8"
-                />
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:id="@+id/noSignal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_signal_wifi_off_24"
+                    android:layout_centerInParent="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/noSignal"
+                    android:text="@string/network_connectivity_status_false"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp_10"
+                    />
+            </RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/movieDetailsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                >
+
+                <ImageView
+                    android:id="@+id/movieBackground"
+                    imageFromPath="@{movieDetails.backdropPath}"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:background="@color/black"
+                    android:scaleType="fitXY"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/moviePoster"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    imageFromPath="@{movieDetails.posterPath}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/movieBackground"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_16" />
+
+                <TextView
+                    android:id="@+id/movieHeadingTv"
+                    android:text="@{movieDetails.title}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_8"
+                    app:layout_constraintStart_toEndOf="@id/moviePoster"
+                    app:layout_constraintTop_toTopOf="@id/moviePoster"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!--        <TextView-->
+                <!--            android:id="@+id/adult"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginTop="@dimen/dp_8"-->
+                <!--            android:text="18+"-->
+                <!--            android:textColor="@color/white"-->
+                <!--            android:textSize="@dimen/sp_16"-->
+                <!--            app:layout_constraintStart_toEndOf="@id/movieHeadingTv"-->
+                <!--            app:layout_constraintTop_toTopOf="@id/moviePoster"-->
+                <!--            app:layout_constraintEnd_toEndOf="pa"-->
+                <!--            />-->
+
+                <TextView
+                    android:id="@+id/movieOverview"
+                    android:text="@{movieDetails.overview}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/movieBackground"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/sp_14"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="italic"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/dp_8"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ProgressBar
                 android:id="@+id/loadingStatus"

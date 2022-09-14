@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.entriappassignment.moviesnow.MovieDetails
 import com.entriappassignment.moviesnow.databinding.MovieViewBinding
 import com.entriappassignment.moviesnow.models.NowPlayingMovieResult
+import com.entriappassignment.moviesnow.singleton.HasLoadedDataState
+import com.entriappassignment.moviesnow.ui.MovieDetails
 import com.entriappassignment.moviesnow.utils.Constants
 
 class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.MovieViewHolder>(COMPARATOR) {
@@ -21,6 +22,7 @@ class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.Mo
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = getItem(position)
         if (movie != null){
+            HasLoadedDataState.setHasLoadedData(true)
             holder.bindData(movie)
         }
     }

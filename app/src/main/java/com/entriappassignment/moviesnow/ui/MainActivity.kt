@@ -15,6 +15,7 @@ import com.entriappassignment.moviesnow.R
 import com.entriappassignment.moviesnow.viewmodels.MoviesViewModel
 import com.entriappassignment.moviesnow.adapters.LoaderAdapter
 import com.entriappassignment.moviesnow.adapters.MoviesAdapter
+import com.entriappassignment.moviesnow.singleton.InternetConnectivityState
 import com.entriappassignment.moviesnow.utils.ConnectionLiveStatus
 import com.entriappassignment.moviesnow.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
     //observe connectivity change
     private fun observeConnectivity(){
         connectivityLiveStatus.observe(this , Observer {status ->
+            InternetConnectivityState.setInternetConnectivityState(status)
             handleConnectivityChange(status)
         })
     }
