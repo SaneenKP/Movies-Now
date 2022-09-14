@@ -1,8 +1,10 @@
 package com.entriappassignment.moviesnow.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -17,7 +19,8 @@ import com.entriappassignment.moviesnow.utils.Utils
 import com.entriappassignment.moviesnow.viewmodels.MovieDetailsViewModel
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
-class MovieDetails : AppCompatActivity() {
+
+class MovieDetails : AppCompatActivity(), View.OnClickListener {
 
     private var movieId : Int = 0;
     lateinit var movieDetailsViewModel : MovieDetailsViewModel
@@ -34,12 +37,19 @@ class MovieDetails : AppCompatActivity() {
 
     }
 
-    private fun bindData(){
+    private fun bindData(data : MovieDetailsData?){
+
+        this.movieDetailsData = data
         if (!movieDetailsContainer.isVisible){
             noConnectionContainer.visibility = View.GONE
             movieDetailsContainer.visibility = View.VISIBLE
         }
-        movieDetailsBinding.movieDetails = this.movieDetailsData
+
+        if (data != null){
+
+            this.movieDetailsData?.tagline = "\"${this.movieDetailsData?.tagline}\""
+            movieDetailsBinding.movieDetails = this.movieDetailsData
+        }
     }
 
     private fun handleIntent(){
@@ -57,6 +67,7 @@ class MovieDetails : AppCompatActivity() {
             noConnectionContainer.visibility = View.VISIBLE
         }
 
+        movieDetailsButton.setOnClickListener(this)
     }
 
     private fun setupObservers(){
@@ -75,8 +86,7 @@ class MovieDetails : AppCompatActivity() {
                    Status.SUCCESS -> {
                        loadingStatus.visibility = View.GONE
                        movieDetailsContainer.visibility = View.VISIBLE
-                       this.movieDetailsData = response.data
-                       bindData()
+                       bindData(response.data)
                    }
 
                    Status.ERROR -> {
@@ -88,6 +98,15 @@ class MovieDetails : AppCompatActivity() {
                }
            }
         })
+    }
+
+    override fun onClick(p0: View?) {
+        when(p0?.id){
+           R.id.movieDetailsButton -> {
+               val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(this.movieDetailsData?.homepage))
+               startActivity(browserIntent)
+           }
+        }
     }
 
 }
