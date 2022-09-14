@@ -32,6 +32,16 @@ class Utils {
             return getImageUrl(Constants.GLIDE_IMAGE_SIZE , imagePath)
         }
 
+        fun convertMovieRuntimeFormatToString(runtime : Int) : String{
+            return if(runtime < 60){
+                "$runtime min"
+            } else{
+                var hour : Int = runtime/60
+                var minutes : Int = runtime % 60
+                ""+hour+"hr "+minutes+" min"
+            }
+        }
+
     }
 
 }

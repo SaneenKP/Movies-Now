@@ -122,6 +122,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <RatingBar
+                android:id="@+id/movieRatingBar"
                 android:rating="@{movieDetails.voteAverage.intValue()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,6 +134,30 @@
                 android:numStars="5"
                 app:layout_constraintStart_toEndOf="@id/moviePoster"
                 app:layout_constraintTop_toBottomOf="@+id/movieHeadingTv"
+                />
+
+            <View
+                android:id="@+id/viewSeperation1"
+                android:layout_width="@dimen/dp_2"
+                android:layout_height="@dimen/dp_10"
+                android:background="@color/white"
+                app:layout_constraintStart_toEndOf="@id/movieRatingBar"
+                app:layout_constraintTop_toTopOf="@id/movieRatingBar"
+                app:layout_constraintBottom_toBottomOf="@id/movieRatingBar"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                />
+
+            <TextView
+                android:id="@+id/movieRuntime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_10"
+                android:layout_marginStart="@dimen/dp_8"
+                app:layout_constraintStart_toEndOf="@id/viewSeperation1"
+                app:layout_constraintTop_toTopOf="@id/movieRatingBar"
+                app:layout_constraintBottom_toBottomOf="@id/movieRatingBar"
                 />
 
             <!--        <TextView-->

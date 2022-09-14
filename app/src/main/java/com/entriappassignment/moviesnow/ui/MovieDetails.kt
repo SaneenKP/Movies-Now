@@ -53,6 +53,8 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
 
             //change vote average value to fit the rating view.
             this.movieDetailsData!!.voteAverage = calculateRating(this.movieDetailsData!!.voteAverage!!)
+
+            movieDetailsBinding.movieRuntime.text = Utils.convertMovieRuntimeFormatToString(this.movieDetailsData!!.runtime!!)
         }
     }
 
