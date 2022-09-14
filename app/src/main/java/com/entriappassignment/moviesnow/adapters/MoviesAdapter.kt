@@ -12,6 +12,7 @@ import com.entriappassignment.moviesnow.models.NowPlayingMovieResult
 import com.entriappassignment.moviesnow.singleton.HasLoadedDataState
 import com.entriappassignment.moviesnow.ui.MovieDetails
 import com.entriappassignment.moviesnow.utils.Constants
+import com.entriappassignment.moviesnow.utils.Utils
 
 class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.MovieViewHolder>(COMPARATOR) {
 
@@ -41,7 +42,9 @@ class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.Mo
 
         fun bindData(nowPlayingMovieResult: NowPlayingMovieResult){
             this.movie = nowPlayingMovieResult
+            this.movie!!.releaseDate = Utils.convertFormatReleaseDate(this.movie!!.releaseDate)
             movieViewDataBinding.movie = this.movie
+
         }
 
         private fun handleItemClick(){

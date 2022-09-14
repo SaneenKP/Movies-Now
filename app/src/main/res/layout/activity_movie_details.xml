@@ -174,6 +174,20 @@
             <!--            />-->
 
             <TextView
+                android:id="@+id/movieRelease"
+                android:text="@{movieDetails.releaseDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dp_16"
+                app:layout_constraintStart_toEndOf="@id/moviePoster"
+                app:layout_constraintTop_toBottomOf="@id/movieRatingBar"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_goneMarginStart="@dimen/dp_8"
+                />
+
+            <TextView
                 android:id="@+id/movieTagline"
                 android:text="@{movieDetails.tagline}"
                 android:layout_width="match_parent"

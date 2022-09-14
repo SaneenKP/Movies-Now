@@ -1,9 +1,14 @@
 package com.entriappassignment.moviesnow.utils
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.entriappassignment.moviesnow.BuildConfig
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class Utils {
 
@@ -44,6 +49,12 @@ class Utils {
         //change the ratings to the multiple of 5 , so that it can be fit in the rating view.
         fun calculateRating(rating: Double): Double {
             return (rating * 5) / 10
+        }
+
+        fun convertFormatReleaseDate(date: String?) : String? {
+            var parser : SimpleDateFormat = SimpleDateFormat("yyyy-mm-dd")
+            var formater : SimpleDateFormat = SimpleDateFormat("dd MMMM yyyy")
+            return formater.format(parser.parse(date))
         }
 
 

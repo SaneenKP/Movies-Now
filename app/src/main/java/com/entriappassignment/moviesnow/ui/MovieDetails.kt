@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.util.Util
 import com.entriappassignment.moviesnow.R
 import com.entriappassignment.moviesnow.databinding.ActivityMovieDetailsBinding
 import com.entriappassignment.moviesnow.models.MovieDetailsData
@@ -55,6 +56,8 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
             this.movieDetailsData!!.voteAverage = Utils.calculateRating(this.movieDetailsData!!.voteAverage!!)
 
             movieDetailsBinding.movieRuntime.text = Utils.convertMovieRuntimeFormatToString(this.movieDetailsData!!.runtime!!)
+
+            this.movieDetailsData!!.releaseDate = Utils.convertFormatReleaseDate(this.movieDetailsData!!.releaseDate)
         }
     }
 
