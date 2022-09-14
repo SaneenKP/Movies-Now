@@ -188,6 +188,22 @@
                 />
 
             <TextView
+                android:id="@+id/movieGenres"
+                android:text="@{movieDetails.finalGenreString}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dp_16"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toEndOf="@id/moviePoster"
+                app:layout_constraintTop_toBottomOf="@id/movieRelease"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                />
+
+            <TextView
                 android:id="@+id/movieTagline"
                 android:text="@{movieDetails.tagline}"
                 android:layout_width="match_parent"

@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.entriappassignment.moviesnow.BuildConfig
+import com.entriappassignment.moviesnow.models.Genres
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -55,6 +56,16 @@ class Utils {
             var parser : SimpleDateFormat = SimpleDateFormat("yyyy-mm-dd")
             var formater : SimpleDateFormat = SimpleDateFormat("dd MMMM yyyy")
             return formater.format(parser.parse(date))
+        }
+
+        fun getMovieGenreString(genres: List<Genres>) : String?{
+            var result = ""
+            genres.forEach { genre ->
+                result += genre.name
+                if (genre.name!!.isNotEmpty())
+                    result += ", "
+            }
+            return StringBuilder(result).deleteAt(result.length-2).toString()
         }
 
 

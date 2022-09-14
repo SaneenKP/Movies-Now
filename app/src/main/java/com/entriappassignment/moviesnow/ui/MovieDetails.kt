@@ -58,6 +58,8 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
             movieDetailsBinding.movieRuntime.text = Utils.convertMovieRuntimeFormatToString(this.movieDetailsData!!.runtime!!)
 
             this.movieDetailsData!!.releaseDate = Utils.convertFormatReleaseDate(this.movieDetailsData!!.releaseDate)
+
+            this.movieDetailsData!!.finalGenreString = Utils.getMovieGenreString(this.movieDetailsData!!.genres)
         }
     }
 

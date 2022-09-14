@@ -17,5 +17,6 @@ data class MovieDetailsData(
     @SerializedName("tagline"               ) var tagline             : String?                        = null,
     @SerializedName("title"                 ) var title               : String?                        = null,
     @SerializedName("vote_average"          ) var voteAverage         : Double?                        = null,
-    @SerializedName("vote_count"            ) var voteCount           : Int?                           = null
+    @SerializedName("vote_count"            ) var voteCount           : Int?                           = null,
+                                              var finalGenreString    : String?                        = null
 )
