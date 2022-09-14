@@ -66,18 +66,6 @@
                 android:padding="@dimen/dp_8"
                 />
 
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="@{movie.voteAverage}"
-                android:layout_gravity="center"
-                style="?android:attr/ratingBarStyleIndicator"
-                android:progressTint="#FFCC01"
-                android:id="@+id/smallRating"
-                android:layout_marginTop="@dimen/dp_8"
-                android:layout_marginBottom="@dimen/dp_8"
-                />
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>

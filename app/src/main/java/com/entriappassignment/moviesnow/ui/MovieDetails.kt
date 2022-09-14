@@ -52,15 +52,10 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
             movieDetailsBinding.movieDetails = this.movieDetailsData
 
             //change vote average value to fit the rating view.
-            this.movieDetailsData!!.voteAverage = calculateRating(this.movieDetailsData!!.voteAverage!!)
+            this.movieDetailsData!!.voteAverage = Utils.calculateRating(this.movieDetailsData!!.voteAverage!!)
 
             movieDetailsBinding.movieRuntime.text = Utils.convertMovieRuntimeFormatToString(this.movieDetailsData!!.runtime!!)
         }
-    }
-
-    //change the ratings to the multiple of 5 , so that it can be fit in the rating view.
-    private fun calculateRating(rating: Double): Double {
-        return (rating * 5) / 10
     }
 
     private fun handleIntent(){

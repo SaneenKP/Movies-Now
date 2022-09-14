@@ -41,7 +41,7 @@ class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.Mo
 
         fun bindData(nowPlayingMovieResult: NowPlayingMovieResult){
             this.movie = nowPlayingMovieResult
-            movieViewDataBinding.movie = calculateRating(nowPlayingMovieResult)
+            movieViewDataBinding.movie = this.movie
         }
 
         private fun handleItemClick(){
@@ -49,13 +49,6 @@ class MoviesAdapter() : PagingDataAdapter<NowPlayingMovieResult,MoviesAdapter.Mo
             intent.putExtra(Constants.MOVIE_ID , this.movie?.id)
             context.startActivity(intent)
         }
-
-        //change the ratings to the multiple of 5 , so that it can be fit in the rating view.
-        private fun calculateRating(nowPlayingMovieResult: NowPlayingMovieResult) : NowPlayingMovieResult{
-           nowPlayingMovieResult.voteAverage = (nowPlayingMovieResult.voteAverage?.times(5))?.div(10)
-            return nowPlayingMovieResult
-        }
-
     }
 
     companion object {

@@ -41,6 +41,11 @@ class Utils {
                 ""+hour+"hr "+minutes+" min"
             }
         }
+        //change the ratings to the multiple of 5 , so that it can be fit in the rating view.
+        fun calculateRating(rating: Double): Double {
+            return (rating * 5) / 10
+        }
+
 
     }
 
