@@ -121,6 +121,20 @@
                 app:layout_constraintTop_toTopOf="@id/moviePoster"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <RatingBar
+                android:rating="@{movieDetails.voteAverage.intValue()}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:progressTint="@color/network_connectivity_alert_color"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:numStars="5"
+                app:layout_constraintStart_toEndOf="@id/moviePoster"
+                app:layout_constraintTop_toBottomOf="@+id/movieHeadingTv"
+                />
+
             <!--        <TextView-->
             <!--            android:id="@+id/adult"-->
             <!--            android:layout_width="wrap_content"-->

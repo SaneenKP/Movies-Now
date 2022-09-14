@@ -45,11 +45,20 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
             movieDetailsContainer.visibility = View.VISIBLE
         }
 
-        if (data != null){
+        if (this.movieDetailsData != null){
 
-            this.movieDetailsData?.tagline = "\"${this.movieDetailsData?.tagline}\""
+            //change the tagline value by adding double quotations
+            this.movieDetailsData!!.tagline = "\"${this.movieDetailsData!!.tagline}\""
             movieDetailsBinding.movieDetails = this.movieDetailsData
+
+            //change vote average value to fit the rating view.
+            this.movieDetailsData!!.voteAverage = calculateRating(this.movieDetailsData!!.voteAverage!!)
         }
+    }
+
+    //change the ratings to the multiple of 5 , so that it can be fit in the rating view.
+    private fun calculateRating(rating: Double): Double {
+        return (rating * 5) / 10
     }
 
     private fun handleIntent(){
