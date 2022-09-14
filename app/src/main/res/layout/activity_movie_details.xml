@@ -84,6 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -117,9 +118,11 @@
                 android:textStyle="bold"
                 android:paddingStart="@dimen/dp_12"
                 android:paddingEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 app:layout_constraintStart_toEndOf="@id/moviePoster"
-                app:layout_constraintTop_toTopOf="@id/moviePoster"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/movieRatingBar"
+                />
 
             <RatingBar
                 android:id="@+id/movieRatingBar"
@@ -131,9 +134,10 @@
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginStart="@dimen/dp_12"
                 android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 android:numStars="5"
                 app:layout_constraintStart_toEndOf="@id/moviePoster"
-                app:layout_constraintTop_toBottomOf="@+id/movieHeadingTv"
+                app:layout_constraintBottom_toTopOf="@id/movieRelease"
                 />
 
             <View
@@ -160,31 +164,19 @@
                 app:layout_constraintBottom_toBottomOf="@id/movieRatingBar"
                 />
 
-            <!--        <TextView-->
-            <!--            android:id="@+id/adult"-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_marginTop="@dimen/dp_8"-->
-            <!--            android:text="18+"-->
-            <!--            android:textColor="@color/white"-->
-            <!--            android:textSize="@dimen/sp_16"-->
-            <!--            app:layout_constraintStart_toEndOf="@id/movieHeadingTv"-->
-            <!--            app:layout_constraintTop_toTopOf="@id/moviePoster"-->
-            <!--            app:layout_constraintEnd_toEndOf="pa"-->
-            <!--            />-->
-
             <TextView
                 android:id="@+id/movieRelease"
                 android:text="@{movieDetails.releaseDate}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/dp_16"
-                app:layout_constraintStart_toEndOf="@id/moviePoster"
-                app:layout_constraintTop_toBottomOf="@id/movieRatingBar"
                 android:textColor="@color/white"
                 android:layout_marginStart="@dimen/dp_10"
                 android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 app:layout_goneMarginStart="@dimen/dp_8"
+                app:layout_constraintStart_toEndOf="@id/moviePoster"
+                app:layout_constraintBottom_toTopOf="@+id/movieGenres"
                 />
 
             <TextView
@@ -194,13 +186,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/dp_16"
                 android:textStyle="bold|italic"
-                app:layout_constraintStart_toEndOf="@id/moviePoster"
-                app:layout_constraintTop_toBottomOf="@id/movieRelease"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/white"
                 android:paddingStart="@dimen/dp_8"
                 android:paddingEnd="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintStart_toEndOf="@id/moviePoster"
+                app:layout_constraintBottom_toBottomOf="@id/moviePoster"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/dp_8"
                 />
 
             <TextView

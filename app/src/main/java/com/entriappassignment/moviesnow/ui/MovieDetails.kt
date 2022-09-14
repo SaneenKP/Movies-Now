@@ -73,11 +73,6 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
         window.statusBarColor =  applicationContext.resources.getColor(R.color.app_background_color)
         movieDetailsViewModel = ViewModelProvider(this)[MovieDetailsViewModel::class.java]
 
-        if (!InternetConnectivityState.getInternetConnectivityState()){
-            movieDetailsContainer.visibility = View.INVISIBLE
-            noConnectionContainer.visibility = View.VISIBLE
-        }
-
         movieDetailsButton.setOnClickListener(this)
     }
 
@@ -103,7 +98,8 @@ class MovieDetails : AppCompatActivity(), View.OnClickListener {
                    Status.ERROR -> {
                        loadingStatus.visibility = View.GONE
                        movieDetailsContainer.visibility = View.GONE
-                       somethingWentWrongContainer.visibility = View.VISIBLE
+                       if (InternetConnectivityState.getInternetConnectivityState()) somethingWentWrongContainer.visibility = View.VISIBLE
+                       else noConnectionContainer.visibility = View.VISIBLE
                        Utils.debug("movie details error ${response.message}")
                    }
                }
