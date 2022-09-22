@@ -67,8 +67,10 @@ class Utils {
                 if (genre.name!!.isNotEmpty())
                     result += ", "
             }
+
             //remove the last comma and return
-            return StringBuilder(result).deleteAt(result.length-2).toString()
+            return if (result.isNotEmpty()) StringBuilder(result).deleteAt(result.length-2).toString()
+            else ""
         }
 
 
